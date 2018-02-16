@@ -102,7 +102,7 @@ function createHardPassword($loop)
 
 function createFile($fileLocation, $data)
 {
-$fp = fopen($fileLocation, 'w');
+    $fp = fopen($fileLocation, 'w');
 		foreach ($data as $fields)
 		{
 			fputcsv($fp, $fields,";");

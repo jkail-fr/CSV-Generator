@@ -99,8 +99,8 @@ include('./includes/head.php');
 		}
 		
 		//We create and write our data in the file 
-		createFile($download,$entete);
-		createFile($download,$list);
+        $fileData = array_merge($entete,$list);
+        createFile($download,$fileData);
 
 
 		// We delete le temp file
