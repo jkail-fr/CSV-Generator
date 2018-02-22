@@ -6,6 +6,7 @@ require_once ('includes/functions.php');
 //We get the data from the csv file
 $file_handle = fopen($emplacement, "r");
 $list=array();
+$count=0;
 while (!feof($file_handle) )
 {
 	$line_of_text = fgetcsv($file_handle, 1024,";");
@@ -39,6 +40,13 @@ while (!feof($file_handle) )
 	// We insert the data in an array to be written in the file later
 	$list[] = array($line_of_text[0], $username, $line_of_text[1], $line_of_text[2]);
 }
+// dirty fix to undefined offset if the csv has an extra lempty line. It uses $count that's intanciated before the while
+$count=$count-1;
+if (empty($list[$count][1]))
+{
+    unset($list[$count]);
+}
+
 fclose($file_handle);
 
 // We create the header column name and put them in the file
