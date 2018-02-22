@@ -42,3 +42,7 @@ addFields : Will generate html fields (input type="text"), based on array ([fiel
 createPassword : Create a password with random letter / numbers / character. The parameter in the number of character of the password.
 createHardpassword : Create a 1 letter, 1 capital, 1 number, 1 character, string for every loop. the parameter of the function is the number of loops 
 createFile : Allows you to create / write in a file. Can be used to create several files (used in results.php and in the MoodleAdvanced processing.
+
+##About encoding
+In functions.php there is a line in the createFile function that can force the file to be encoded as UTF8
+In results.php there is commented code when it reads the csv. If you uncomment the line (utf8_encode / decode) it'll allow you to manipulate utf-8 data.)
