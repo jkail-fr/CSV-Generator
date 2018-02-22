@@ -103,7 +103,9 @@ function createHardPassword($loop)
 function createFile($fileLocation, $data)
 {
     $fp = fopen($fileLocation, 'w');
-		foreach ($data as $fields)
+    //Un comment the line under to make your file encode as UTF-8
+    //fprintf($fp, chr(0xEF).chr(0xBB).chr(0xBF));
+    foreach ($data as $fields)
 		{
 			fputcsv($fp, $fields,";");
 		}

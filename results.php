@@ -12,10 +12,15 @@ while (!feof($file_handle) )
 	
 	//We remove space in email and space before and after other string and we apply changes to string
 	$line_of_text[0] = strtolower(str_replace(' ','', $line_of_text[0]));
-	$line_of_text[1] = ucwords(strtolower(trim($line_of_text[1])));
-	//if php > php5.4 try :
-	//$line_of_text[1] = ucwords(strtolower(trim($line_of_text[1])),"-");
-	$line_of_text[2] = strtoupper(trim($line_of_text[2]));
+    //$line_of_text[1] = utf8_decode($line_of_text[1]);
+    $line_of_text[1] = ucwords(strtolower(trim($line_of_text[1])));
+    //$line_of_text[1] = utf8_encode($line_of_text[1]);
+
+    //if php > php5.4 try :
+    //$line_of_text[1] = ucwords(strtolower(trim($line_of_text[1])),"-");
+    //$line_of_text[2] = utf8_decode($line_of_text[2]);
+    $line_of_text[2] = strtoupper(trim($line_of_text[2]));
+   // $line_of_text[2] = utf8_encode($line_of_text[2]);
 	
 
 		// we generate the username based on the choice made in step 3 : username format
